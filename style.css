@@ -11,10 +11,11 @@
   --font-color: white;
   --navbar:rgba(23, 28, 42, 0.549);
   --accent: #ffffff;
-  --form: rgba(184, 200, 235, 0.549);
+  --form: rgba(255, 255, 255, 0.098);
+  --orange:rgb(255, 192, 57);
 }
 
-#Home,#About,#Skills,#Project{
+#Home,#About,#Skills,#Project,#Contact{
     scroll-margin-top: 10rem;
 }
 
@@ -44,19 +45,9 @@ header {
     margin-top:0px;
      /* Safari needs the prefix */
 }
-h1 {
-  color: var(--font-color);
-  font-size:57px;
-  margin-bottom:4.7rem;
-  text-align: center
-}
 
-.intro_text h1{
-  color: var(--font-color);
-  font-size:57px;
-  margin-bottom: 0;
-  text-align: left;
-}
+
+
 
 #vanta-bg { 
   position: fixed; 
@@ -85,7 +76,7 @@ h1 {
   bottom: 0;
   width: 100%;
   height: 2px;
-  background-color: rgb(255, 200, 118);
+  background-color: var(--orange);
   transform: scaleX(0);
   transform-origin: center;
   transition: transform 0.3s ease;
@@ -115,28 +106,42 @@ h1 {
 }
 
 hr {
-  margin: 0 auto;
   border: none;
   border-top: 1.3px solid rgba(255, 255, 255, 0.435);
   margin : 4.7rem 0;
   width: 90%;
+  
 }
 
 .intro {
   color: var(--font-color);
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   font-size: 38px;
+}
+.intro_text h1{
+  font-size:57px;
+  margin-bottom:0;
+  text-align: left;
+}
+
+h1 {
+  color: var(--font-color);
+  font-size:57px;
+  margin-bottom:4.7rem;
+  text-align: center;
 }
 
 .hero{
-   margin-bottom:3rem;
+   margin-bottom:3.5rem;
 }
  
   .typewriter {
-    font-size: clamp(1.5rem, 2vw, 2rem);
+    font-size: 1.5rem;
     font-weight: 700;
-    color: rgb(155, 155, 155);
+    color: var(--orange);
     margin-left:0;
+    font-family: 'Special Elite', monospace;
+    font-weight:400 ;
   }
  
   .cursor {
@@ -160,8 +165,8 @@ hr {
 .intro_p {
   color: var(--font-color);
   margin-bottom: 30px;
-  font-size: 20px;
-  line-height: 1.6;
+  font-size: 18px;
+  line-height: 1.55;
 }
 
 .intro_bg {
@@ -287,7 +292,7 @@ hr {
     content:"";
     height:2px;
 
-    background-color:rgb(255, 200, 118);
+    background-color:var(--orange);
 }
 .tab img{
 
@@ -349,18 +354,32 @@ hr {
 }
 #form{
   width:43%;
+  display: flex;
+  flex-direction: column;
 }
 #form input,textarea{
+  height:35px;
   width:100%;
+
   padding:6px;
   border-radius: 8px;
   background-color: var(--form);
   border:0;
-  color:#ffffff;
+  color:#dadada;
+  font-size: 16px;
+  margin-top:8px;
+  margin-bottom:25px;
+
+}
+
+#form label{
+  font-size: 20px;
 }
 #form_query{
-  max-height:50px;
-  height:100%;
+  max-height:120px;
+  min-height:30px;
+  height:50px;
+  resize: vertical;
 }
 
 .contact_line{
@@ -371,5 +390,22 @@ hr {
   bottom:30px;
   position:absolute;
 
+}
+
+.submit{
+  align-self:center;
+  padding:6px;
+  font-size: 18px;
+  background-color: var(--form);
+  border:0;
+  color:#ffffff;
+  border-radius: 8px;
+  height:38px;
+  width:44%;
+  margin-bottom:10px;
+}
+.submit:hover{
+  background-color: var(--orange);
+  color:#010102;
 }
 
