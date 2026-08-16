@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Interactive Animated Background</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body {
+    height: 100%;
+    background: #0a0a0c;
+    overflow: hidden;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+  }
+  #bg-canvas {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    display: block;
+  }
+  .content {
+    position: relative;
+    z-index: 2;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #e8e8e8;
+    pointer-events: none;
+  }
+  .content h1 {
+    font-size: 2.4rem;
+    letter-spacing: 3px;
+    font-weight: 300;
+    color: #d4d4d8;
+    text-shadow: 0 0 20px rgba(140, 40, 40, 0.4);
+  }
+  .content p {
+    margin-top: 12px;
+    color: #77777d;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+  }
+</style>
+</head>
+<body>
+
+<canvas id="bg-canvas"></canvas>
+
+<div class="content">
+  <h1>MOVE YOUR CURSOR</h1>
+  <p>particles react to proximity — drag this into your own site</p>
+</div>
+
+<script>
+const canvas = document.getElementById('bg-canvas');
+const ctx = canvas.getContext('2d');
+let width, height;
+let particles = [];
+const mouse = { x: null, y: null, radius: 140 };
+
+function resize() {
+  width = canvas.width = window.innerWidth;
+  height = canvas.height = window.innerHeight;
+  initParticles();
+}
+
+class Particle {
+  constructor() {
+    this.baseX = Math.random() * width;
+    this.baseY = Math.random() * height;
+    this.x = this.baseX;
+    this.y = this.baseY;
+    this.size = Math.random() * 1.8 + 0.6;
+    this.vx = (Math.random() - 0.5) * 0.25;
+    this.vy = (Math.random() - 0.5) * 0.25;
+    this.hue = 355 + Math.random() * 15; // dark red/crimson tint
+  }
+
+  update() {
+    // gentle drift
+    this.baseX += this.vx;
+    this.baseY += this.vy;
+
+    // wrap around edges
+    if (this.baseX < 0) this.baseX = width;
+    if (this.baseX > width) this.baseX = 0;
+    if (this.baseY < 0) this.baseY = height;
+    if (this.baseY > height) this.baseY = 0;
+
+    // mouse repulsion
+    let dx = this.baseX - mouse.x;
+    let dy = this.baseY - mouse.y;
+    let dist = Math.sqrt(dx * dx + dy * dy);
+
+    if (mouse.x !== null && dist < mouse.radius) {
+      const force = (mouse.radius - dist) / mouse.radius;
+      const angle = Math.atan2(dy, dx);
+      this.x = this.baseX + Math.cos(angle) * force * 30;
+      this.y = this.baseY + Math.sin(angle) * force * 30;
+    } else {
+      this.x = this.baseX;
+      this.y = this.baseY;
+    }
+  }
+
+  draw() {
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+    ctx.fillStyle = `hsla(${this.hue}, 60%, 55%, 0.8)`;
+    ctx.fill();
+  }
+}
+
+function initParticles() {
+  particles = [];
+  const count = Math.floor((width * height) / 9000);
+  for (let i = 0; i < count; i++) {
+    particles.push(new Particle());
+  }
+}
+
+function connectParticles() {
+  const maxDist = 110;
+  for (let i = 0; i < particles.length; i++) {
+    for (let j = i + 1; j < particles.length; j++) {
+      const dx = particles[i].x - particles[j].x;
+      const dy = particles[i].y - particles[j].y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      if (dist < maxDist) {
+        const opacity = (1 - dist / maxDist) * 0.15;
+        ctx.beginPath();
+        ctx.strokeStyle = `rgba(180, 60, 60, ${opacity})`;
+        ctx.lineWidth = 0.6;
+        ctx.moveTo(particles[i].x, particles[i].y);
+        ctx.lineTo(particles[j].x, particles[j].y);
+        ctx.stroke();
+      }
+    }
+  }
+}
+
+function animate() {
+  ctx.clearRect(0, 0, width, height);
+
+  // subtle vignette base
+  const grad = ctx.createRadialGradient(width/2, height/2, 0, width/2, height/2, Math.max(width, height)/1.2);
+  grad.addColorStop(0, 'rgba(20,10,12,0.15)');
+  grad.addColorStop(1, 'rgba(5,5,6,0.4)');
+  ctx.fillStyle = grad;
+  ctx.fillRect(0, 0, width, height);
+
+  particles.forEach(p => { p.update(); p.draw(); });
+  connectParticles();
+
+  requestAnimationFrame(animate);
+}
+
+window.addEventListener('resize', resize);
+window.addEventListener('mousemove', (e) => {
+  mouse.x = e.clientX;
+  mouse.y = e.clientY;
+});
+window.addEventListener('mouseout', () => {
+  mouse.x = null;
+  mouse.y = null;
+});
+window.addEventListener('touchmove', (e) => {
+  mouse.x = e.touches[0].clientX;
+  mouse.y = e.touches[0].clientY;
+}, { passive: true });
+
+resize();
+animate();
+</script>
+
+</body>
+</html>
