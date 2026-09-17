@@ -180,17 +180,8 @@ h1 {
   opacity: 0.5;
 }
 
-.CutOut {
-  position: absolute;
-  width: 400px;
-  height: auto;
-  bottom: 0;
-  right: 0;
-  z-index: 2;
-}
-
 .intro_text {
-  max-width: 50%;
+  max-width: 100%;
   text-align: left;
 
 }
@@ -210,12 +201,7 @@ h1 {
   border:0.3px solid rgba(127, 127, 127, 0.41);
   margin: 0px 20px;
 }
-.line_intro2{
-  height:65%;
-  border:0.3px solid rgba(127, 127, 127, 0.41);
-  margin-left:52%;
-  position:absolute;
-}
+
 
 
 #About p {
@@ -311,19 +297,39 @@ h1 {
   align-items: center;
 }
 
-.project_tab{
-  max-width:80vw;
-  height:30vh;
-  width:80%;
-  background-color:var(--first_intro);
-  margin-bottom:30px;
-  border-radius:8px;
+.project_tab {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  max-width: 80vw;
+  height: 30vh;
+  width: 80%;
+  background-color: var(--first_intro);
+  margin-bottom: 30px;
+  border-radius: 8px;
+  overflow: hidden;
 }
-.project_img_line{
-  height:24.5%;
-  border:0.3px solid rgba(127, 127, 127, 0.41);
-  margin-left:25%;
-  position:absolute;
+
+.project_img_line {
+  height: 80%;
+  border-left: 1px solid rgba(127, 127, 127, 0.41);
+  margin: 0 20px;
+}
+
+.tabImg, .tabVideo {
+  width: 37%;
+  height: 100%;
+  object-fit: cover;
+  padding: 9px;
+  margin: 0px;
+  border-radius:8px;
+
+}
+
+.project_detail {
+  flex-grow: 1;
+  padding: 20px;
+  color: var(--font-color);
 }
 
 
@@ -409,3 +415,50 @@ h1 {
   color:#010102;
 }
 
+/* -----------Footer-----------------*/
+
+footer {
+  width: 80%;
+  margin: 40px auto 0 auto;
+  padding: 20px;
+  border-radius: 10px 10px 0 0;
+  background-color: var(--navbar);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 0 40px 0.2px rgba(0, 0, 0, 0.51);
+  color: var(--font-color);
+}
+
+.footer_content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.footer_links {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+.footer_links a img {
+  width: 24px;
+  transition: transform 0.25s ease;
+  filter: brightness(0.8);
+}
+
+.footer_links a img:hover {
+  transform: scale(1.2);
+  filter: brightness(1);
+}
+
+.footer_text {
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 0.7);
+}
