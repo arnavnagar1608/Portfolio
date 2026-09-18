@@ -613,6 +613,8 @@ footer {
   font-size: 16px;
   line-height: 1.6;
   color: #f8f8f2;
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }
 .json-key { color: #8be9fd; } /* Cyan */
 .json-string { color: #f1fa8c; } /* Yellow */
