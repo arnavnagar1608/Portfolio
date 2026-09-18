@@ -557,16 +557,48 @@ footer {
   border: none;
 }
 
+/* Fix GitHub Calendar alignment and text colors */
+.calendar .sr-only { display: none !important; }
+
+.calendar .js-calendar-graph-svg {
+  margin: 0 auto !important;
+  display: block;
+}
+
+.calendar .js-calendar-graph {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  overflow-x: auto;
+  padding: 20px 0;
+}
+
+/* Hide broken stats */
 .calendar .contrib-column {
-  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  display: none !important; 
+}
+
+/* Center and clean up the legend footer */
+.calendar .contrib-footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 13px;
+}
+
+.calendar .float-left {
+  display: none !important; 
 }
 
 .calendar text.wday, .calendar text.month {
   fill: rgba(255, 255, 255, 0.7);
 }
 
-.calendar .ContributionCalendar-day[data-level="0"] { background-color: #161b22; }
-.calendar .ContributionCalendar-day[data-level="1"] { background-color: #0e4429; }
-.calendar .ContributionCalendar-day[data-level="2"] { background-color: #006d32; }
-.calendar .ContributionCalendar-day[data-level="3"] { background-color: #26a641; }
-.calendar .ContributionCalendar-day[data-level="4"] { background-color: #39d353; }
+.calendar .ContributionCalendar-day[data-level="0"] { fill: #161b22; background-color: #161b22; }
+.calendar .ContributionCalendar-day[data-level="1"] { fill: #0e4429; background-color: #0e4429; }
+.calendar .ContributionCalendar-day[data-level="2"] { fill: #006d32; background-color: #006d32; }
+.calendar .ContributionCalendar-day[data-level="3"] { fill: #26a641; background-color: #26a641; }
+.calendar .ContributionCalendar-day[data-level="4"] { fill: #39d353; background-color: #39d353; }
