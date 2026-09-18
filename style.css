@@ -2,7 +2,7 @@
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
-  font-family: sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
 :root {
@@ -65,7 +65,7 @@ header {
   font-size: 16px;
   border: none;
   color: var(--font-color);
-  font-family: sans-serif;
+  font-family: 'Inter', sans-serif;
   border-radius: 6px 6px 0px 0px;
 }
 
@@ -136,11 +136,10 @@ h1 {
  
   .typewriter {
     font-size: 1.5rem;
-    font-weight: 700;
     color: var(--orange);
     margin-left:0;
-    font-family: 'Special Elite', monospace;
-    font-weight:400 ;
+    font-family: 'Fira Code', monospace;
+    font-weight:500 ;
   }
  
   .cursor {
