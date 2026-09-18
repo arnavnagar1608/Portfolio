@@ -5,6 +5,15 @@
   font-family: 'Inter', sans-serif;
 }
 
+h1, h2, h3 {
+  font-family: 'Fira Code', monospace;
+  font-weight: 600;
+}
+
+input, button, textarea, select {
+  font-family: 'Inter', sans-serif;
+}
+
 :root {
   --background-color: /*rgb(23, 28, 42)*/ #0c1623;
   --first_intro: rgba(33, 40, 59, 0.549);
@@ -21,6 +30,7 @@
 
 body {
   background-color: var(--background-color);
+  font-family: 'Inter', sans-serif;
 }
 
 header {
@@ -65,7 +75,7 @@ header {
   font-size: 16px;
   border: none;
   color: var(--font-color);
-  font-family: 'Inter', sans-serif;
+  font-family: 'Fira Code', monospace;
   border-radius: 6px 6px 0px 0px;
 }
 
@@ -372,6 +382,7 @@ h1 {
 }
 #form{
   width:43%;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
 }
