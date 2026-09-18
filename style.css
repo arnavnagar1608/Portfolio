@@ -108,9 +108,8 @@ header {
 hr {
   border: none;
   border-top: 1.3px solid rgba(255, 255, 255, 0.435);
-  margin : 4.7rem 0;
+  margin: 4.7rem auto;
   width: 90%;
-  
 }
 
 .intro {
