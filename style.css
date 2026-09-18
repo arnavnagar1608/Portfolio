@@ -558,7 +558,10 @@ footer {
 }
 
 /* Fix GitHub Calendar alignment and text colors */
-.calendar .sr-only { display: none !important; }
+.calendar .sr-only,
+.calendar > a { 
+  display: none !important; 
+}
 
 .calendar .js-calendar-graph-svg {
   margin: 0 auto !important;
