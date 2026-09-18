@@ -147,6 +147,8 @@ h1 {
   .cursor {
     display: inline-block;
     width: 3px;
+    height: 1.2em;
+    vertical-align: text-bottom;
     margin-left: 4px;
     background: var(--accent);
     animation: blink 0.9s steps(1) infinite;
