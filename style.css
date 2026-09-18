@@ -331,6 +331,18 @@ h1 {
   flex-grow: 1;
   padding: 20px;
   color: var(--font-color);
+  text-align: left;
+}
+
+.project_detail h2 {
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+.project_detail p {
+  font-size: 17px;
+  line-height: 1.6;
+  letter-spacing: 1px;
 }
 
 
