@@ -602,3 +602,14 @@ footer {
 .calendar .ContributionCalendar-day[data-level="2"] { fill: #006d32; background-color: #006d32; }
 .calendar .ContributionCalendar-day[data-level="3"] { fill: #26a641; background-color: #26a641; }
 .calendar .ContributionCalendar-day[data-level="4"] { fill: #39d353; background-color: #39d353; }
+
+/* JSON Syntax Highlighting */
+.json-syntax pre {
+  margin: 15px 0;
+  font-family: 'Fira Code', 'Consolas', monospace;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #f8f8f2;
+}
+.json-key { color: #8be9fd; } /* Cyan */
+.json-string { color: #f1fa8c; } /* Yellow */
