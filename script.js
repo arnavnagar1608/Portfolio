@@ -40,3 +40,5 @@
   }
  
   setTimeout(tick, 600);
+// Initialize GitHub Calendar
+GitHubCalendar('.calendar', 'arnavnagar1608');

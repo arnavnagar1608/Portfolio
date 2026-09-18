@@ -531,3 +531,42 @@ footer {
   letter-spacing: 1px;
   color: rgba(255, 255, 255, 0.7);
 }
+
+/* GitHub Calendar Dark Theme Overrides */
+.calendar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px auto 60px auto;
+  width: 90%;
+  max-width: 80vw;
+}
+
+.calendar {
+  width: 100%;
+  background-color: var(--first_intro);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 40px 0.2px rgba(0, 0, 0, 0.51);
+  color: var(--font-color);
+  font-family: sans-serif;
+}
+
+.calendar .graph-before-activity-overview {
+  border: none;
+}
+
+.calendar .contrib-column {
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.calendar text.wday, .calendar text.month {
+  fill: rgba(255, 255, 255, 0.7);
+}
+
+.calendar .ContributionCalendar-day[data-level="0"] { background-color: #161b22; }
+.calendar .ContributionCalendar-day[data-level="1"] { background-color: #0e4429; }
+.calendar .ContributionCalendar-day[data-level="2"] { background-color: #006d32; }
+.calendar .ContributionCalendar-day[data-level="3"] { background-color: #26a641; }
+.calendar .ContributionCalendar-day[data-level="4"] { background-color: #39d353; }
